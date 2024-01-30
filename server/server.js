@@ -3,6 +3,9 @@
 // ... express setup goes here
 import express from "express"
 import cors from "cors"
+import dotenv from "dotenv"
+
+dotenv.config()
 const app = express()
 app.use(express.json()) // ensure this is present so the server can understand JSON data
 app.use(cors())
@@ -13,7 +16,7 @@ app.post("/messages", function (req, res) {
   });
 
 // ... app.listen goes here 
-app.listen('3000', () => {
+app.listen(process.env.PORT, () => {
     console.log('server started on port 3000')
 })
 
